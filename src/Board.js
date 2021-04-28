@@ -2,33 +2,6 @@ import React, {Component} from "react";
 import Cell from "./Cell";
 import './Board.css';
 
-
-/** Game board of Lights out.
- *
- * Properties:
- *
- * - nrows: number of rows of board
- * - ncols: number of cols of board
- * - chanceLightStartsOn: float, chance any cell is lit at start of game
- *
- * State:
- *
- * - hasWon: boolean, true when board is all off
- * - board: array-of-arrays of true/false
- *
- *    For this board:
- *       .  .  .
- *       O  O  .     (where . is off, and O is on)
- *       .  .  .
- *
- *    This would be: [[f, f, f], [t, t, f], [f, f, f]]
- *
- *  This should render an HTML table of individual <Cell /> components.
- *
- *  This doesn't handle any clicks --- clicks are on individual cells
- *
- **/
-
 class Board extends Component {
   static defaultProps = {
     nrows: 5,
@@ -41,16 +14,13 @@ class Board extends Component {
         hasWon: false,
         board: this.createBoard()
       }
-    // TODO: set initial state DONE
     this.flipCellsAround = this.flipCellsAround.bind(this);
     this.gameState = this.gameState.bind(this);
   }
 
-  /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
 
   createBoard() {
     let board = [];
-    // TODO: create array-of-arrays of true/false values DONE
     for (let y = 0; y < this.props.nrows; y++) {
       let row = [];
       let x = 0;
@@ -65,8 +35,6 @@ class Board extends Component {
     }
     return board
   }
-
-  /** handle changing a cell: update board & determine if winner */
 
   flipCellsAround(coord) {
     let {ncols, nrows} = this.props;
@@ -83,7 +51,6 @@ class Board extends Component {
       }
     }
 
-    // TODO: flip this cell and the cells around it DONE
     flipCell(y, x)
     flipCell(y-1, x) // North
     flipCell(y+1, x) // South
@@ -91,7 +58,6 @@ class Board extends Component {
     flipCell(y, x+1) // West
 
     // win when every cell is turned off
-    // TODO: determine is the game has been won
     let hasWon = this.state.hasWon;
     if (this.gameState()) hasWon = true;
 
@@ -129,8 +95,6 @@ class Board extends Component {
     )
   }
 
-  /** Render game board or winning message. */
-
   render() {
     return (
       <div>
@@ -140,7 +104,7 @@ class Board extends Component {
             <span className="neon-orange">Win!</span>
           </div>
         ) : (
-        <div>
+        <div className="Board-display">
           <div className="Board-title">
             <div className="neon-orange">Lights</div>
             <div className="neon-blue">Out</div>

@@ -8,3 +8,16 @@
 .Cell-lit {
   background-color: #00bdc4;
 }
+
+@media (max-width: 650px) {
+  .Cell {
+    height: 80px;
+    width: 80px;
+  }
+}
+@media (max-width: 450px) {
+  .Cell {
+    height: 60px;
+    width: 60px;
+  }
+}
