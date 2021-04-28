@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Board from "./Board";
 import "./App.css";
 
-/** Simple app that just shows the LightsOut game. */
+/** This app was adapted from the project developed by Colt Steele */
 
 class App extends Component {
   render() {
