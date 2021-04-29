@@ -21,6 +21,7 @@ class Board extends Component {
 
   createBoard() {
     let board = [];
+    let lightsOn = 0;
     for (let y = 0; y < this.props.nrows; y++) {
       let row = [];
       let x = 0;
@@ -28,12 +29,17 @@ class Board extends Component {
         let cell = {};
         cell.coord = `${y}-${x}`
         cell.isLit = (Math.random() < this.props.chanceLightStartsOn) ? true : false;
-        row.push(cell)
-        x++
+        if (cell.isLit) lightsOn++;
+        row.push(cell);
+        x++;
       }
       board.push(row);
     }
+    if (lightsOn % 2 !== 0)  {
+      return this.createBoard()
+    } else {
     return board
+    };
   }
 
   flipCellsAround(coord) {

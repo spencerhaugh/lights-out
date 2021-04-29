@@ -1,6 +1,6 @@
 .Board {
   margin: 5% auto;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
   max-width: 100vw
 }
@@ -55,19 +55,19 @@
 /* Border Radis for corner cells */
 /* Top Left */
 table tr:first-child td:first-child {
-  border-radius: 10px 0 0 0 !important;
+  border-radius: 5px 0 0 0 !important;
 }
 /* Top right */
 table tr:first-child td:last-child {
-  border-radius: 0 10px 0 0 !important;
+  border-radius: 0 5px 0 0 !important;
 }
 /* Bottom Left */
 table tr:last-child td:first-child {
-  border-radius: 0 0 0 10px !important;
+  border-radius: 0 0 0 5px !important;
 }
 /* Bottom Right */
 table tr:last-child td:last-child {
-  border-radius: 0 0 10px 0 !important;
+  border-radius: 0 0 5px 0 !important;
 }
 
 @keyframes neon-orange {
